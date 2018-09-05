@@ -18,22 +18,6 @@ const del = require('del'), // Подключаем библиотеку для 
     autoprefixer = require('gulp-autoprefixer');// Подключаем библиотеку для автоматического добавления префиксов
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Less */
 gulp.task('less', function (done) {
     gulp.src('app/less/**/*.less')
@@ -78,7 +62,9 @@ gulp.task('htmlbeautify', function () {
         .pipe(htmlbeautify(options))
         .pipe(gulp.dest('app'))
 });
+
 /* LiveReload */
+
 gulp.task('browser-sync', function () { // Создаем таск browser-sync
     browserSync({ // Выполняем browser Sync
         server: { // Определяем параметры сервера
@@ -101,36 +87,6 @@ gulp.task('css-libs', ['less'], function() {
         .pipe(rename({suffix: '.min'})) // Добавляем суффикс .min
         .pipe(gulp.dest('app/css')); // Выгружаем в папку app/css
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* Смотрим изменения */
 gulp.task('watch', ['browser-sync', 'css-libs', 'pug', 'scripts'], function () {
@@ -158,10 +114,6 @@ gulp.task('img', function() {
         .pipe(gulp.dest('dist/img')); // Выгружаем на продакшен
 });
 
-
-
-
-
 gulp.task('build', ['clean', 'img', 'less', 'scripts', 'pug'], function() {
 
     var buildCss = gulp.src('app/css/*.css')
@@ -175,7 +127,6 @@ gulp.task('build', ['clean', 'img', 'less', 'scripts', 'pug'], function() {
     var buildHtml = gulp.src('app/*.html').pipe(gulp.dest('dist'));
 
 });
-
 
 gulp.task('default', ['watch']);
 
