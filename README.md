@@ -7,4 +7,8 @@ npm init
 
 
 
-npm i --save-dev gulp-name
+npm i gulp --save-dev
+
+
+
+npm i --save-dev gulp-name 
