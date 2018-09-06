@@ -11,4 +11,7 @@ npm i gulp --save-dev
 
 
 
-npm i --save-dev gulp-name 
+npm i --save-dev gulp-name
+
+
+npm install (сборка из package.json)
